@@ -27,7 +27,7 @@ const config = {
         npmPublish: false,
         tarballDir: "dist"
       },
-    ]
+    ],
     [
       "@semantic-release/git", {
         "assets": ["dist/**/*.js", "package.json", "CHANGELOG.md"],
