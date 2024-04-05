@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if [ ! -f $1 ]; then
+  echo "Commit message file not found"
+  exit 1
+fi
+
+if ! read -r COMMIT_MSG < $1; then
+  echo "Failed to read commit message"
+  exit 1
+fi
+
+case "$COMMIT_MSG" in
+  "chore(release):"*)
+    echo "Release commit, skipping linting..."
+    exit 0
+    ;;
+esac
+
+npx commitlint --edit $1
+echo "Commit message linted"
+
