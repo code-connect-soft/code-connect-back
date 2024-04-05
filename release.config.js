@@ -22,8 +22,15 @@ const config = {
       },
     ],
     [
+      '@semantic-release/npm',
+      {
+        npmPublish: false,
+        tarballDir: "dist"
+      },
+    ]
+    [
       "@semantic-release/git", {
-        "assets": ["dist/**/*.js", "package.json", "CHANGELOG.md", "README.md"],
+        "assets": ["dist/**/*.js", "package.json", "CHANGELOG.md"],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
